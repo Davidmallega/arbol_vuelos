@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.seat-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: #111111cb;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.seat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.seat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #333;
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    flex-direction: column;
+    color: #fff;
+}
+.seat i {
+    font-size: 24px;
+}
+.seat span {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 14px;
+    background-color: #555;
+    border-radius: 50%;
+    padding: 2px 5px;
+    color: #fff;
+}
+.selected {
+    background-color: #1e90ff;
+    background-blend-mode: multiply;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.confirm-button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.confirm-button:hover {
+    background-color: #218838;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Reservas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='reservation_list.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='background1.css') }}">
+</head>
+<body>
+    <h1>Lista de Reservas</h1>
+    <nav>
+        <a href="{{ url_for('control_de_reservas.vuelos_disponibles') }}">Vuelos</a>
+        <a href="{{ url_for('control_de_reservas.reservations') }}" class="active">Reservas</a>
+    </nav>
+    <table>
+        <thead>
+            <tr>
+                <th>ID de Vuelo</th>
+                <th>Nombre del Pasajero</th>
+                <th>Fecha</th>
+                <th>País de Origen</th>
+                <th>País de Destino</th>
+                <th>Asientos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservations %}
+            <tr>
+                <td>{{ reserva.vuelo_id }}</td>
+                <td>{{ reserva.nombre_pasajero }}</td>
+                <td>{{ reserva.fecha }}</td>
+                <td>{{ reserva.pais_origen }}</td>
+                <td>{{ reserva.pais_destino }}</td>
+                <td>{{ reserva.asientos }}</td>
+                <td>
+                    <form action="{{ url_for('control_de_reservas.delete_reservation', vuelo_id=reserva.vuelo_id) }}" method="post" style="display: inline;">
+                        <button type="submit" class="button delete-button">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
